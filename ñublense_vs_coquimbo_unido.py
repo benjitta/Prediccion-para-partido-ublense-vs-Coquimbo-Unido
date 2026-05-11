@@ -73,6 +73,20 @@ elif probabilidad > 0.4:
 else:
     print("Conclusión: Esta difícil la para Coquimbo ñublense tiene la ventaja.")
 
+
+# Modelo de Goles
+modelo_goles = LinearRegression()
+modelo_goles.fit(X_historial, y_goles_totales)
+prediccion_goles = modelo_goles.predict(datos_partido_nuevo)[0]
+
+print("\n--- Apuesta a Cantidad de Goles (Mercado Over/Under) ---")
+print(f"Goles totales esperados por el modelo: {prediccion_goles:.2f}")
+
+if prediccion_goles > 2.5:
+    print("Sugerencia de apuesta: MÁS DE 2.5 GOLES (Over 2.5) en el partido.")
+else:
+    print("Sugerencia de apuesta: MENOS DE 2.5 GOLES (Under 2.5) en el partido.")
+
 # ====================================================================
 #               MERCADO DE GOLES (OVER/UNDER 2.5)
 # ====================================================================
